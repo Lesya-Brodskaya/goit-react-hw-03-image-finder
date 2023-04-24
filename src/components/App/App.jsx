@@ -34,25 +34,22 @@ class App extends Component {
     ) {
       this.setState({ status: Status.PENDING });
 
-      fetchImages(this.state.imageName, this.state.page)
-        .then(images => {
-          if (images.hits.length < 1) {
-            this.setState({ showButton: false, status: Status.IDLE });
-            return alert('No images on your query');
-          }
+      fetchImages(this.state.imageName, this.state.page).then(images => {
+        if (images.hits.length < 1) {
+          this.setState({ showButton: false, status: Status.IDLE });
+          return alert('No images on your query');
+        }
 
-          this.setState(prevState => ({
-            images: [...prevState.images, ...images.hits],
-          }));
+        this.setState(prevState => ({
+          images: [...prevState.images, ...images.hits],
+        }));
 
-          this.setState({
-            status: Status.RESOLVED,
-            showButton:
-              this.state.page < Math.ceil(images.total / 12) ? true : false,
-          });
-        })
-        .then(console.log(this.state.images))
-        .catch(error => console.log(error));
+        this.setState({
+          status: Status.RESOLVED,
+          showButton:
+            this.state.page < Math.ceil(images.total / 12) ? true : false,
+        });
+      });
     }
   }
 
