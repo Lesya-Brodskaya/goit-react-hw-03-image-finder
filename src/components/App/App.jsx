@@ -75,11 +75,11 @@ class App extends Component {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
 
-  handleModalImage = event => {
+  onGetLargeImage = event => {
     this.setState({ modalImage: event });
   };
 
-  handleModalAlt = event => {
+  largeImageUrl = event => {
     this.setState({ imageAlt: event });
   };
 
@@ -94,8 +94,8 @@ class App extends Component {
     const {
       handleFormSubmit,
       toggleModal,
-      handleModalImage,
-      handleModalAlt,
+      onGetLargeImage,
+      largeImageUrl,
       loadMoreImages,
     } = this;
 
@@ -111,8 +111,8 @@ class App extends Component {
           <ImageGallery
             showModal={toggleModal}
             images={images}
-            handleModalImage={handleModalImage}
-            handleModalAlt={handleModalAlt}
+            onGetLargeImage={onGetLargeImage}
+            largeImageUrl={largeImageUrl}
           />
         )}
 

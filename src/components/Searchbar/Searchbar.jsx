@@ -1,12 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Header,
-  Form,
-  SearchFormButton,
-  ButtonLabel,
-  Input,
-} from './Searchbar.styled';
+import { Header, Form, SearchFormButton, Input } from './Searchbar.styled';
 
 class Searchbar extends Component {
   state = {
@@ -17,17 +11,6 @@ class Searchbar extends Component {
     this.setState({ searchImage: event.currentTarget.value });
   };
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-
-  //   if (this.state.searchImage.trim() === '') {
-  //     alert('Please, enter image name.');
-  //     return;
-  //   }
-  //   this.props.onSubmit(this.state.searchImage);
-  //   this.setState({ searchImage: '' });
-  // };
-
   handleSubmit = event => {
     event.preventDefault();
 
@@ -36,16 +19,15 @@ class Searchbar extends Component {
       return;
     }
     this.props.onSubmit(this.state.searchImage);
+    this.setState({ searchImage: '' });
   };
 
   render() {
     return (
-      <header>
-        <form onSubmit={this.handleSubmit}>
-          <button type="submit">
-            <span>Search</span>
-          </button>
-          <input
+      <Header>
+        <Form onSubmit={this.handleSubmit}>
+          <SearchFormButton type="submit"></SearchFormButton>
+          <Input
             class="input"
             type="text"
             autocomplete="off"
@@ -53,9 +35,9 @@ class Searchbar extends Component {
             placeholder="Search images and photos"
             value={this.state.searchImage}
             onChange={this.handleSearchChange}
-          ></input>
-        </form>
-      </header>
+          />
+        </Form>
+      </Header>
     );
   }
 }

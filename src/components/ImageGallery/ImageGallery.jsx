@@ -7,7 +7,6 @@ const ImageGallery = ({ images, onGetLargeImage }) => {
     <>
       <List>
         {images.map(({ id, webformatURL, tags, largeImageUrl }) => {
-          console.log(webformatURL);
           return (
             <ImageGalleryItem
               key={id}

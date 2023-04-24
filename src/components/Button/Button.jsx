@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Container, LoadMore } from './Button.styled';
 
-const Button = onClick => {
+const Button = ({ onClick }) => {
   return (
     <Container>
       <LoadMore type="button" onClick={onClick}>
