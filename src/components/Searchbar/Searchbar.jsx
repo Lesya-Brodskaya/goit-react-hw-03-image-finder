@@ -17,26 +17,35 @@ class Searchbar extends Component {
     this.setState({ searchImage: event.currentTarget.value });
   };
 
+  // handleSubmit = event => {
+  //   event.preventDefault();
+
+  //   if (this.state.searchImage.trim() === '') {
+  //     alert('Please, enter image name.');
+  //     return;
+  //   }
+  //   this.props.onSubmit(this.state.searchImage);
+  //   this.setState({ searchImage: '' });
+  // };
+
   handleSubmit = event => {
     event.preventDefault();
 
     if (this.state.searchImage.trim() === '') {
-      alert('Please, enter image name.');
+      alert('Please, enter image name');
       return;
     }
     this.props.onSubmit(this.state.searchImage);
-    this.setState({ searchImage: '' });
   };
 
   render() {
     return (
-      <Header>
-        <Form omSubmit={this.handleSubmit}>
-          <SearchFormButton type="submit">
-            <ButtonLabel>Search</ButtonLabel>
-          </SearchFormButton>
-
-          <Input
+      <header>
+        <form onSubmit={this.handleSubmit}>
+          <button type="submit">
+            <span>Search</span>
+          </button>
+          <input
             class="input"
             type="text"
             autocomplete="off"
@@ -44,9 +53,9 @@ class Searchbar extends Component {
             placeholder="Search images and photos"
             value={this.state.searchImage}
             onChange={this.handleSearchChange}
-          />
-        </Form>
-      </Header>
+          ></input>
+        </form>
+      </header>
     );
   }
 }
