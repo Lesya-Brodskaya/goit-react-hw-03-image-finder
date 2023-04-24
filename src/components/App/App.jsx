@@ -103,7 +103,7 @@ class App extends Component {
       <Container>
         <Searchbar onSubmit={handleFormSubmit} />
 
-        {status === Status.IDLE && <Text>Search something!</Text/>}
+        {status === Status.IDLE && <Text>Search something!</Text>}
 
         {status === Status.PENDING && <Loader />}
 

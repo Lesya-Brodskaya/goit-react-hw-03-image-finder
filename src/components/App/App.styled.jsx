@@ -6,3 +6,5 @@ export const Container = styled.div`
   grid-gap: 16px;
   padding-bottom: 24px;
 `;
+
+export const Text = styled.h2``;
