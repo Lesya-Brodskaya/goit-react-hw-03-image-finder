@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Item, Img } from './ImageGalleryItem.styled';
 
 const ImageGalleryItem = ({ smallUrl, alt, largeUrl, onGetLargeImage }) => {
+  console.log(smallUrl);
   return (
     <Item onClick={() => onGetLargeImage({ largeUrl, alt })}>
       <Img src={smallUrl} alt={alt} width="300" />
