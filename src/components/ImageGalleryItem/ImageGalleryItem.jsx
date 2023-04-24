@@ -1,9 +1,20 @@
 import PropTypes from 'prop-types';
 import { Item, Img } from './ImageGalleryItem.styled';
 
-const ImageGalleryItem = ({ smallUrl, alt, largeUrl, onGetLargeImage }) => {
+const ImageGalleryItem = ({
+  smallUrl,
+  alt,
+  largeUrl,
+  onGetLargeImage,
+  showModal,
+}) => {
   return (
-    <Item onClick={() => onGetLargeImage({ largeUrl: largeUrl, alt: alt })}>
+    <Item
+      onClick={() => {
+        onGetLargeImage({ largeUrl: largeUrl, alt: alt });
+        showModal();
+      }}
+    >
       <Img src={smallUrl} alt={alt} largeUrl={largeUrl} width="300" />
     </Item>
   );

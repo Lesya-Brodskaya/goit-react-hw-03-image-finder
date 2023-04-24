@@ -16,13 +16,13 @@ class Modal extends Component {
 
   handleKeyDown = event => {
     if (event.code === 'Escape') {
-      this.props.onModalClose();
+      this.props.onClose();
     }
   };
 
   handleBackdropClick = event => {
     if (event.target === event.currentTarget) {
-      this.props.onModalClose();
+      this.props.onClose();
     }
   };
 
@@ -31,8 +31,9 @@ class Modal extends Component {
       <Overlay onClick={this.handleBackdropClick}>
         <StyledModal>
           <img
-            src={this.props.largeImage.largeUrl}
-            alt={this.props.largeImage.alt}
+            src={this.props.modalImage.largeUrl}
+            alt={this.props.modalImage.alt}
+            width="1200px"
           />
         </StyledModal>
       </Overlay>,
@@ -42,12 +43,11 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  largeImage: PropTypes.shape({
+  modalImage: PropTypes.shape({
     largeUrl: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
   }).isRequired,
-  onModalClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Modal;

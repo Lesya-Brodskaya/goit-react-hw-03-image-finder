@@ -85,8 +85,7 @@ class App extends Component {
   };
 
   render() {
-    const { images, status, showModal, modalImage, imageAlt, showButton } =
-      this.state;
+    const { images, status, showModal, modalImage, showButton } = this.state;
 
     const {
       handleFormSubmit,
@@ -115,11 +114,7 @@ class App extends Component {
 
         {showButton && <Button onClick={loadMoreImages} />}
 
-        {showModal && (
-          <Modal onClose={toggleModal}>
-            <img src={modalImage} alt={imageAlt} />
-          </Modal>
-        )}
+        {showModal && <Modal onClose={toggleModal} modalImage={modalImage} />}
       </Container>
     );
   }
