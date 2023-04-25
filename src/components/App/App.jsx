@@ -35,7 +35,7 @@ class App extends Component {
       this.setState({ status: Status.PENDING });
 
       fetchImages(this.state.imageName, this.state.page).then(images => {
-        if (images.length < 1) {
+        if (images.hits.length < 1) {
           this.setState({ showButton: false, status: Status.IDLE });
           return alert('No images on your query');
         }
