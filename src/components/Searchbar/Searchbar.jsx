@@ -31,10 +31,10 @@ class Searchbar extends Component {
             <FcSearch size="30" />
           </SearchFormButton>
           <Input
-            class="input"
+            assName="input"
             type="text"
             autocomplete="off"
-            autofocus
+            toFocus
             placeholder="Search images and photos"
             value={this.state.searchImage}
             onChange={this.handleSearchChange}

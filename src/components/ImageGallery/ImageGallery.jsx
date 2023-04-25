@@ -10,12 +10,12 @@ const ImageGallery = ({ images, onGetLargeImage, showModal }) => {
           return (
             <ImageGalleryItem
               key={id}
-              smallUrl={webformatURL}
               showModal={showModal}
+              smallUrl={webformatURL}
               alt={tags}
               onGetLargeImage={onGetLargeImage}
               largeUrl={largeImageURL}
-            ></ImageGalleryItem>
+            />
           );
         })}
       </List>

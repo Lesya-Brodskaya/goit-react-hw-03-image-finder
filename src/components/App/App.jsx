@@ -94,6 +94,7 @@ class App extends Component {
       largeImageUrl,
       loadMoreImages,
     } = this;
+    console.log(modalImage);
 
     return (
       <Container>

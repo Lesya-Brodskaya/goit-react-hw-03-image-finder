@@ -33,7 +33,7 @@ class Modal extends Component {
           <img
             src={this.props.modalImage.largeUrl}
             alt={this.props.modalImage.alt}
-            width="1200px"
+            width="900px"
           />
         </StyledModal>
       </Overlay>,
