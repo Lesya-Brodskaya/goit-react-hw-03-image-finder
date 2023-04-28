@@ -23,8 +23,7 @@ class App extends Component {
     showButton: false,
     showModal: false,
     status: Status.IDLE,
-    modalImage: '',
-    imageAlt: '',
+    modalImage: {},
   };
 
   componentDidUpdate(_, prevState) {
@@ -42,13 +41,10 @@ class App extends Component {
 
         this.setState(prevState => ({
           images: [...prevState.images, ...images.hits],
-        }));
-
-        this.setState({
           status: Status.RESOLVED,
           showButton:
             this.state.page < Math.ceil(images.total / 12) ? true : false,
-        });
+        }));
       });
     }
   }
@@ -74,10 +70,6 @@ class App extends Component {
 
   onGetLargeImage = event => {
     this.setState({ modalImage: event });
-  };
-
-  largeImageUrl = event => {
-    this.setState({ imageAlt: event });
   };
 
   toggleModal = () => {
